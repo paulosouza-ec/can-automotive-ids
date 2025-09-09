@@ -4,8 +4,7 @@ Bem-vindo! Este projeto transforma uma simples Raspberry Pi em um **Guardião In
 
 Cansado da ideia de que as redes automotivas são vulneráveis? 😟 Nós também! Por isso, criamos um Sistema de Detecção de Intrusão (IDS) completo, desde a simulação dos ataques até a detecção ao vivo.
 
-[cite_start]**Autores:** Danilo A. Barbosa Nogueira, Paulo S. Galdino de Souza [cite: 3]
-
+**Autores:** Psgs, Dabn
 
 ---
 
@@ -13,41 +12,43 @@ Cansado da ideia de que as redes automotivas são vulneráveis? 😟 Nós també
 
 Em vez de analisar pacotes CAN um por um (o que seria lento e ineficiente!), nosso sistema observa o **comportamento do tráfego** em pequenas janelas de tempo.
 
-[cite_start]A cada 100 milissegundos, extraímos a "personalidade" da rede com base em 4 características-chave[cite: 64, 173]:
-1.  [cite_start]**Contagem de Mensagens:** O volume de tráfego está normal ou suspeitosamente alto? [cite: 66]
+A cada 100 milissegundos, extraímos a "personalidade" da rede com base em 4 características-chave:
+1.  **Contagem de Mensagens:** O volume de tráfego está normal ou suspeitosamente alto?
 2.  **Contagem de IDs Únicos:** Estamos vendo os "participantes" de sempre na conversa ou há estranhos na rede?
-3.  [cite_start]**Tempo Médio entre Mensagens:** A comunicação está fluindo no ritmo esperado? [cite: 67]
+3.  **Tempo Médio entre Mensagens:** A comunicação está fluindo no ritmo esperado?
 4.  **Desvio Padrão do Tempo:** O ritmo da comunicação está estável ou caótico?
 
-[cite_start]Essas características alimentam nosso cérebro digital — um modelo **Random Forest** treinado — que classifica o tráfego como `Benigno` ou como um dos `Ataques` conhecidos com uma **acurácia de 98.5%**! [cite: 83, 200]
+Essas características alimentam nosso cérebro digital — um modelo **Random Forest** treinado — que classifica o tráfego como `Benigno` ou como um dos `Ataques` conhecidos com uma **acurácia de 98.5%**!
 
 ---
 
 ## 👾 Inimigos Detectados
 
-[cite_start]Nosso IDS foi treinado para identificar e classificar 4 tipos de ciberataques veiculares[cite: 54]:
+Nosso IDS foi treinado para identificar e classificar 4 tipos de ciberataques veiculares:
 
--   [cite_start]**🌪️ Ataque de Negação de Serviço (DoS):** Quando o barramento é inundado com lixo para impedir a comunicação. [cite: 55]
--   [cite_start]**💣 Ataque de Fuzzing:** Mensagens aleatórias e malformadas tentando encontrar uma brecha no sistema. [cite: 56]
--   [cite_start]**🎭 Ataque de Injeção (Spoofing):** Um impostor se passando por uma ECU legítima para enviar comandos perigosos. [cite: 57]
--   [cite_start]**🔁 Ataque de Replay:** Uma sequência de comandos legítimos gravada e reenviada em um momento inoportuno. [cite: 58]
+-   **🌪️ Ataque de Negação de Serviço (DoS):** Quando o barramento é inundado com lixo para impedir a comunicação.
+-   **💣 Ataque de Fuzzing:** Mensagens aleatórias e malformadas tentando encontrar uma brecha no sistema.
+-   **🎭 Ataque de Injeção (Spoofing):** Um impostor se passando por uma ECU legítima para enviar comandos perigosos.
+-   **🔁 Ataque de Replay:** Uma sequência de comandos legítimos gravada e reenviada em um momento inoportuno.
 
 ---
 
 ## 🛠️ O Arsenal (Tecnologias Utilizadas)
 
 -   **🐍 Linguagem:** Python 3
--   [cite_start]**🧠 Machine Learning:** Scikit-Learn, Pandas, NumPy [cite: 52]
--   [cite_start]**🚗 Comunicação CAN:** Biblioteca `python-can` [cite: 51]
--   [cite_start]**💻 Hardware:** Raspberry Pi + Módulo CAN (Ex: MCP2515) [cite: 48]
+-   **🧠 Machine Learning:** Scikit-Learn, Pandas, NumPy
+-   **🚗 Comunicação CAN:** Biblioteca `python-can`
+-   **💻 Hardware:** Raspberry Pi + Módulo CAN (Ex: MCP2515)
 
 ---
 
 ## 📈 Resultados em Destaque
 
-A performance do modelo é excelente. Com a acurácia acima de 98%, A matriz de confusão abaixo mostra que a maioria dos ataques, especialmente **Replay e Injection, são detectados com 100% de precisão**. As curvas ROC e de Precisão-Recall (com pontuações AUC e AP > 0.99) confirmam que o sistema é extremamente confiável, gerando poucos alarmes falsos.
+A performance do modelo é excelente. Com a acurácia acima de 98%, a matriz de confusão abaixo mostra que a maioria dos ataques, especialmente **Replay e Injection, são detectados com 100% de precisão**. As curvas ROC e de Precisão-Recall (com pontuações AUC e AP > 0.99) confirmam que o sistema é extremamente confiável, gerando poucos alarmes falsos.
 
-![Matriz de Confusão do Projeto](https://i.imgur.com/fKu3bMI.png)
+<p align="center">
+  <img src="https://i.imgur.com/fKu3bMI.png" width="70%">
+</p>
 
 ---
 
@@ -59,7 +60,7 @@ Quer ver a mágica acontecer? Siga estes passos para rodar o detector com nosso 
 
 ```bash
 # Clone este repositório
-git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
+git clone [https://github.com/paulosouza-ec/automotive-can-ids.git)
 cd seu-repositorio
 
 # Crie e ative um ambiente virtual (recomendado)
@@ -67,7 +68,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Instale todas as dependências mágicas
-pip install -r 
+pip install -r requirements.txt
 ```
 
 #### 2. Ligue a Interface CAN
@@ -96,7 +97,6 @@ Com o guardião rodando, abra um **novo terminal**, ative o ambiente virtual (`s
 # Exemplo: Ataque de DoS
 python ataques/dos.py
 ```
-
 Volte para o terminal do guardião e veja os alertas de detecção aparecerem em tempo real!
 
 ---
