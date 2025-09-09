@@ -6,7 +6,6 @@ Cansado da ideia de que as redes automotivas são vulneráveis? 😟 Nós també
 
 [cite_start]**Autores:** Danilo A. Barbosa Nogueira, Paulo S. Galdino de Souza [cite: 3]
 
-![Matriz de Confusão do Projeto](https://raw.githubusercontent.com/galdinopaulo/CAN-Bus-IDS-using-ML/main/metricas/matriz_confusao.png)
 
 ---
 
@@ -48,7 +47,9 @@ Em vez de analisar pacotes CAN um por um (o que seria lento e ineficiente!), nos
 
 A performance do modelo é excelente. Com a acurácia acima de 98%, A matriz de confusão abaixo mostra que a maioria dos ataques, especialmente **Replay e Injection, são detectados com 100% de precisão**. As curvas ROC e de Precisão-Recall (com pontuações AUC e AP > 0.99) confirmam que o sistema é extremamente confiável, gerando poucos alarmes falsos.
 
-![Matriz de Confusão do Projeto](https://i.imgur.com/fKu3bMI.png)
+<p align="center">
+  <img src="https://i.imgur.com/R3Oba5a.png" width="70%">
+</p>
 
 ---
 
