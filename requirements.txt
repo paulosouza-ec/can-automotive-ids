@@ -1,0 +1,12 @@
+# Dependências para comunicação com a Rede CAN
+python-can
+
+# Dependências para Machine Learning e manipulação de dados
+scikit-learn
+pandas
+numpy
+joblib
+
+# Dependências para geração de gráficos (usado no script de treino)
+matplotlib
+seaborn
