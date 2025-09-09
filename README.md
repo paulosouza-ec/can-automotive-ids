@@ -44,6 +44,14 @@ Em vez de analisar pacotes CAN um por um (o que seria lento e ineficiente!), nos
 
 ---
 
+## 📈 Resultados em Destaque
+
+A performance do modelo é excelente. Com a acurácia acima de 98%, A matriz de confusão abaixo mostra que a maioria dos ataques, especialmente **Replay e Injection, são detectados com 100% de precisão**. As curvas ROC e de Precisão-Recall (com pontuações AUC e AP > 0.99) confirmam que o sistema é extremamente confiável, gerando poucos alarmes falsos.
+
+![Matriz de Confusão do Projeto](https://imgur.com/a/APGEVMQ)
+
+---
+
 ## 🚀 Guia de Início Rápido (Rode em 5 Minutos!)
 
 Quer ver a mágica acontecer? Siga estes passos para rodar o detector com nosso modelo já treinado.
@@ -60,7 +68,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Instale todas as dependências mágicas
-pip install -r requirements.txt
+pip install -r 
 ```
 
 #### 2. Ligue a Interface CAN
